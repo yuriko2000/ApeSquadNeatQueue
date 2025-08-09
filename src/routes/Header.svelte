@@ -1,10 +1,5 @@
 <script>
-	import { page } from '$app/stores';
-	import { browser } from '$app/environment';
 	import github from '$lib/images/github.svg';
-	
-	// Use browser check to avoid SSR issues
-	$: currentPath = browser ? $page.url.pathname : '';
 </script>
 
 <header>
@@ -19,10 +14,10 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={currentPath === '/' ? 'page' : undefined}>
+			<li>
 				<a href="/">Rankings</a>
 			</li>
-			<li aria-current={currentPath === '/about' ? 'page' : undefined}>
+			<li>
 				<a href="/about">About</a>
 			</li>
 		</ul>
