@@ -1,15 +1,14 @@
-# example netlify.toml
+# Netlify configuration for SvelteKit
 [build]
-  command = "npm run build"
-  functions = "netlify/functions"
-  publish = "build/output/client"
+  command = "npm run build && cp -r build/output/client/_app build/output/prerendered/pages/ && cp build/output/client/favicon.svg build/output/prerendered/pages/ && cp build/output/client/robots.txt build/output/prerendered/pages/"
+  functions = "build/output/server"
+  publish = "build/output/prerendered/pages"
 
-  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
-  ## Not needed for static site generators.
-  #[[redirects]]
-  #  from = "/*"
-  #  to = "/index.html"
-  #  status = 200
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
