@@ -1,14 +1,8 @@
 # Netlify configuration for SvelteKit
 [build]
-  command = "npm run build && cp -r build/output/client/_app build/output/prerendered/pages/ && cp build/output/client/favicon.svg build/output/prerendered/pages/ && cp build/output/client/robots.txt build/output/prerendered/pages/"
+  command = "npm run build && cp -r build/output/client/_app build/output/prerendered/pages/ && cp build/output/client/favicon.svg build/output/prerendered/pages/ && cp build/output/client/robots.txt build/output/prerendered/pages/ && cp _redirects build/output/prerendered/pages/"
   functions = "build/output/server"
   publish = "build/output/prerendered/pages"
-
-# SPA fallback for client-side routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
 
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
