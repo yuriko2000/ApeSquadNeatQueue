@@ -5,7 +5,8 @@
 <header>
 	<div class="corner">
 		<div class="logo">
-			🦍 ApeSquad
+			<span class="logo-emoji">🦍</span>
+			<span class="logo-text">ApeSquad</span>
 		</div>
 	</div>
 
@@ -16,6 +17,9 @@
 		<ul>
 			<li>
 				<a href="/">Rankings</a>
+			</li>
+			<li>
+				<a href="/queue">Queue</a>
 			</li>
 			<li>
 				<a href="/about">About</a>
@@ -37,11 +41,21 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 1.5rem;
+		min-height: 4em;
+		border-bottom: 1px solid var(--color-border);
+		box-sizing: border-box;
+		width: 100%;
 	}
 
 	.corner {
-		width: 3em;
+		width: 12em;
 		height: 3em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
 	}
 
 	.corner a {
@@ -64,15 +78,33 @@
 		justify-content: center;
 		width: 100%;
 		height: 100%;
+		gap: 0.75rem;
+	}
+
+	.logo-emoji {
+		font-size: 1.75rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 1;
+	}
+
+	.logo-text {
 		font-weight: 700;
-		font-size: 1.1rem;
+		font-size: 1.3rem;
 		color: var(--color-theme-1);
+		white-space: nowrap;
+		letter-spacing: 0.05em;
+		line-height: 1.2;
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
 		--background: var(--color-card-bg);
+		flex: 1;
+		max-width: 20em;
+		margin: 0 1rem;
 	}
 
 	svg {
@@ -131,5 +163,57 @@
 
 	a:hover {
 		color: var(--color-theme-1);
+	}
+
+	/* Responsive design for smaller screens */
+	@media (max-width: 768px) {
+		header {
+			padding: 0.5rem 1rem;
+		}
+
+		.corner {
+			width: 9em;
+		}
+
+		.logo-text {
+			font-size: 1.1rem;
+		}
+
+		.logo-emoji {
+			font-size: 1.5rem;
+		}
+
+		nav {
+			max-width: 15em;
+			margin: 0 0.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		header {
+			padding: 0.25rem 0.5rem;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.corner {
+			width: 7em;
+			height: 3em;
+		}
+
+		.logo-text {
+			font-size: 1rem;
+		}
+
+		.logo-emoji {
+			font-size: 1.25rem;
+		}
+
+		nav {
+			max-width: 12em;
+			margin: 0;
+			order: 3;
+			width: 100%;
+		}
 	}
 </style>
