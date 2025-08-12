@@ -1,7 +1,13 @@
+import adapter from "@sveltejs/adapter-auto";
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    // No adapter for development
+    adapter: adapter(),
+    paths: {
+      base: "",
+    },
+    outDir: "build",
   },
 };
 
